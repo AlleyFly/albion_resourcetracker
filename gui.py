@@ -12,7 +12,20 @@ class GUI:
 	def resolve(self):
 		self.textfeld.delete(1.0, END)
 		rwood = self.backend.calc(self.backend.wood)
+		rbrick = self.backend.calc(self.backend.brick)
+		rleather = self.backend.calc(self.backend.leather)
+		rmetal = self.backend.calc(self.backend.metal)
+		rcloth = self.backend.calc(self.backend.cloth)
 		self.textfeld.insert(END, rwood)
+		self.textfeld.insert(END, "\n")
+		self.textfeld.insert(END, rbrick)
+		self.textfeld.insert(END, "\n")
+		self.textfeld.insert(END, rleather)
+		self.textfeld.insert(END, "\n")
+		self.textfeld.insert(END, rmetal)
+		self.textfeld.insert(END, "\n")
+		self.textfeld.insert(END, rcloth)
+		self.textfeld.insert(END, "\n")
 
 	
 	def __init__(self, root, backend):

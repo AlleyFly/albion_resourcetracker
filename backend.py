@@ -23,9 +23,10 @@ class backend:
 		}
 		result = [0,0,0,0,0,0,0]
 		#1 vorheriges Endprodukt wird benötigt
-		for i in matlist[:1:-1]:
+		print(matlist)
+		for i in range(6,0,-1):
 			matlist[i-1] += matlist[i]
-
+			
 		for i in matlist:
 			result[i] = matlist[i]*multable[i+2]
 			
