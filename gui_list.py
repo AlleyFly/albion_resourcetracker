@@ -27,8 +27,8 @@ class GUI:
 		self.cbtns.grid(row=6, column=0, columnspan=7)
 		
 		#TextBox zur Ausgabe
-		self.textfeld = Text(root, height = 10, width = 25)
-		self.textfeld.pack(side=LEFT, fill=BOTH, expand=1)
+		self.textfeld = Text(root, height = 10, width = 50, spacing2 = 10)
+		self.textfeld.pack(side=TOPLEFT, fill=BOTH, expand=1)
 		
 		#submit button
 		submit = Button(self.cbtns, text="Submit", command=self.resolve)
@@ -57,7 +57,7 @@ class GUI:
 	
 	#/init
 	
-	def resolve(self):
+	"""def resolve(self):
 		self.textfeld.delete(1.0, END)
 		rwood = self.backend.calc(self.backend.wood)
 		rbrick = self.backend.calc(self.backend.brick)
@@ -65,7 +65,7 @@ class GUI:
 		rmetal = self.backend.calc(self.backend.metal)
 		rcloth = self.backend.calc(self.backend.cloth)
 		
-		self.textfeld.insert(END, ["T2", "T3","T4","T5","T6","T7","T8"])
+		self.textfeld.insert(END, tiers)
 		self.textfeld.insert(END, "\n")
 		self.textfeld.insert(END, rwood)
 		self.textfeld.insert(END, "\n")
@@ -76,8 +76,23 @@ class GUI:
 		self.textfeld.insert(END, rmetal)
 		self.textfeld.insert(END, "\n")
 		self.textfeld.insert(END, rcloth)
-		self.textfeld.insert(END, "\n")
+		self.textfeld.insert(END, "\n")"""
 		
+	def resolve(self):
+		self.textfeld.delete(1.0, END)
+		needed = []
+		needed.append(tiers)
+		needed.append(self.backend.calc(self.backend.wood))
+		needed.append(self.backend.calc(self.backend.brick))
+		needed.append(self.backend.calc(self.backend.leather))
+		needed.append(self.backend.calc(self.backend.metal))
+		needed.append(self.backend.calc(self.backend.cloth))
+		
+		for i in needed:
+			for x in i:
+				self.textfeld.insert(END, x)
+				self.textfeld.insert(END, "\t")
+			
 	def clear(self):
 		self.textfeld.delete(1.0, END)
 		self.backend.__init__()		
