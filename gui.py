@@ -1,12 +1,11 @@
 from tkinter import *
+
+
 woodc = "burlywood"
 brickc = "red"
 leatherc = "black"
 metalc = "silver"
 clothc = "beige"
-
-#TODO: knöpfe in Listen packen
-
 
 class GUI:
 

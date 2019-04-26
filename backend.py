@@ -10,6 +10,15 @@ class backend:
 		self.metal = [0,0,0,0,0,0,0]
 		self.cloth = [0,0,0,0,0,0,0]
 		
+	def getElement(self, mat, tier):
+		res = {
+			0: self.wood,
+			1: self.brick,
+			2: self.leather,
+			3: self.metal,
+			4: self.cloth
+		}
+		return res[mat][tier]
 	
 	def calc(self, matlist):
 		multable = {
