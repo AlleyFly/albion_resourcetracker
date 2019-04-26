@@ -19,16 +19,16 @@ class GUI:
 		self.buttons = []
 		
 		#Frame um die Eingabeanordnung zusammenzufassen
-		self.intab = Frame(root)
-		self.intab.pack(side=LEFT, fill=Y)
+		self.intab = Frame(root, bg="red")
+		self.intab.grid(row=0, column=0)
 		
 		#Frame für control buttons
-		self.cbtns = Frame(self.intab)
-		self.cbtns.grid(row=6, column=0, columnspan=7)
+		self.cbtns = Frame(self.intab, bg="green")
+		self.cbtns.grid(row=6, column=0, columnspan=8, sticky=NSEW)
 		
 		#TextBox zur Ausgabe
-		self.textfeld = Text(root, height = 10, width = 50, spacing2 = 10)
-		self.textfeld.pack(side=TOPLEFT, fill=BOTH, expand=1)
+		self.textfeld = Text(root, height = 10, width = 52, spacing2 = 10)
+		self.textfeld.grid(row=0, column=1, sticky=NSEW)
 		
 		#submit button
 		submit = Button(self.cbtns, text="Submit", command=self.resolve)
@@ -37,6 +37,10 @@ class GUI:
 		#clear button
 		clear = Button(self.cbtns, text="Clear", command=self.clear)
 		clear.pack(side=LEFT)
+		
+		#additem
+		newitem = Button(self.cbtns, text="Add", command=self.addItem)
+		newitem.pack(side=LEFT)
 		
 		#buttonTable labels
 		for i in range(7):
@@ -54,29 +58,10 @@ class GUI:
 				self.buttons[i].append(button)
 				self.buttons[i][j].bind("<Button-3>", lambda a, row=i, column=j: self.backend.submat(column+2, mats[row], self.buttons[row][column]))
 				self.buttons[i][j].grid(row=i+1,column=j+1)		
+				
+		self.resolve()
 	
 	#/init
-	
-	"""def resolve(self):
-		self.textfeld.delete(1.0, END)
-		rwood = self.backend.calc(self.backend.wood)
-		rbrick = self.backend.calc(self.backend.brick)
-		rleather = self.backend.calc(self.backend.leather)
-		rmetal = self.backend.calc(self.backend.metal)
-		rcloth = self.backend.calc(self.backend.cloth)
-		
-		self.textfeld.insert(END, tiers)
-		self.textfeld.insert(END, "\n")
-		self.textfeld.insert(END, rwood)
-		self.textfeld.insert(END, "\n")
-		self.textfeld.insert(END, rbrick)
-		self.textfeld.insert(END, "\n")
-		self.textfeld.insert(END, rleather)
-		self.textfeld.insert(END, "\n")
-		self.textfeld.insert(END, rmetal)
-		self.textfeld.insert(END, "\n")
-		self.textfeld.insert(END, rcloth)
-		self.textfeld.insert(END, "\n")"""
 		
 	def resolve(self):
 		self.textfeld.delete(1.0, END)
@@ -93,9 +78,15 @@ class GUI:
 				self.textfeld.insert(END, x)
 				self.textfeld.insert(END, "\t")
 			
+	#full-clear
 	def clear(self):
 		self.textfeld.delete(1.0, END)
 		self.backend.__init__()		
+		self.btnrenew()
+		
+	def addItem(self):
+		self.resolve()
+		self.backend.pushItem()
 		self.btnrenew()
 		
 	def btnrenew(self):

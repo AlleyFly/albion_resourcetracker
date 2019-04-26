@@ -1,15 +1,37 @@
 
+multable = {
+			2: 1,
+			3: 2,
+			4: 2,
+			5: 3,
+			6: 4,
+			7: 5,
+			8: 5
+		}
 
 class backend:
 
-
+	#for full-clear
 	def __init__(self):
 		self.wood = [0,0,0,0,0,0,0]
 		self.brick = [0,0,0,0,0,0,0]
 		self.leather = [0,0,0,0,0,0,0]
 		self.metal = [0,0,0,0,0,0,0]
 		self.cloth = [0,0,0,0,0,0,0]
+		self.items = []
 		
+	#clear current item
+	def clearItem(self):
+		self.wood = [0,0,0,0,0,0,0]
+		self.brick = [0,0,0,0,0,0,0]
+		self.leather = [0,0,0,0,0,0,0]
+		self.metal = [0,0,0,0,0,0,0]
+		self.cloth = [0,0,0,0,0,0,0]
+	
+	def pushItem(self):
+		self.items.append(self.getAll())
+		self.clearItem()
+	
 	def getElement(self, mat, tier):
 		res = {
 			0: self.wood,
@@ -19,17 +41,12 @@ class backend:
 			4: self.cloth
 		}
 		return res[mat][tier]
+		
+	def getAll(self):
+		return [self.wood, self.brick, self.leather, self.metal, self.cloth]
 	
 	def calc(self, matlist):
-		multable = {
-			2: 1,
-			3: 2,
-			4: 2,
-			5: 3,
-			6: 4,
-			7: 5,
-			8: 5
-		}
+		
 		result = matlist[:]
 		#1 vorheriges Endprodukt wird benötigt
 		for i in range(6,0,-1):
@@ -38,6 +55,16 @@ class backend:
 		for i in range(7):
 			result[i] = result[i]*multable[i+2]
 			
+		return result
+		
+	def calcItem(self):
+		result = []
+		result.append(self.calc(self.wood))
+		result.append(self.calc(self.brick))
+		result.append(self.calc(self.leather))
+		result.append(self.calc(self.metal))
+		result.append(self.calc(self.cloth))
+		
 		return result
 		
 	def chwood(self, tier, dekr):
