@@ -26,7 +26,7 @@ class backend:
 		for i in range(6,0,-1):
 			result[i-1] += result[i]
 			
-		for i in range(6):
+		for i in range(7):
 			result[i] = result[i]*multable[i+2]
 			
 		return result
