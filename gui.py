@@ -5,6 +5,8 @@ leatherc = "black"
 metalc = "silver"
 clothc = "beige"
 
+#TODO: knöpfe in Listen packen
+
 
 class GUI:
 
@@ -16,6 +18,8 @@ class GUI:
 		rleather = self.backend.calc(self.backend.leather)
 		rmetal = self.backend.calc(self.backend.metal)
 		rcloth = self.backend.calc(self.backend.cloth)
+		self.textfeld.insert(END, ["T2", "T3","T4","T5","T6","T7","T8"])
+		self.textfeld.insert(END, "\n")
 		self.textfeld.insert(END, rwood)
 		self.textfeld.insert(END, "\n")
 		self.textfeld.insert(END, rbrick)
@@ -26,6 +30,10 @@ class GUI:
 		self.textfeld.insert(END, "\n")
 		self.textfeld.insert(END, rcloth)
 		self.textfeld.insert(END, "\n")
+		
+	def clear(self):
+		self.textfeld.delete(1.0, END)
+		self.backend.__init__()
 
 	
 	def __init__(self, root, backend):
@@ -41,10 +49,14 @@ class GUI:
 		
 		#submit button
 		submit = Button(intab, text="Submit", command=self.resolve)
-		submit.grid(row=0, column=0)
+		submit.grid(row=6, column=0, columnspan = 2)
+		
+		clear = Button(intab, text="Clear", command=self.clear)
+		clear.grid(row=6, column=2, columnspan = 2)
 		
 		
 		#table outline horiz
+		labelt0 = Label(intab, text="Tier")
 		labelt2 = Label(intab, text="T2")
 		labelt3 = Label(intab, text="T3")
 		labelt4 = Label(intab, text="T4")
@@ -53,6 +65,7 @@ class GUI:
 		labelt7 = Label(intab, text="T7")
 		labelt8 = Label(intab, text="T8")
 		
+		labelt0.grid(row=0, column=0)
 		labelt2.grid(row=0, column=1)
 		labelt3.grid(row=0, column=2)
 		labelt4.grid(row=0, column=3)
