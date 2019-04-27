@@ -27,7 +27,7 @@ class backend:
 		#leere Materialliste erstellen und 5x in Itemliste kopieren
 		emptyMat = [0,0,0,0,0,0,0]
 		self.item = [emptyMat[:] for i in mats]
-		self.total = self.item[:]
+		self.total = copy.deepcopy(self.item)
 		
 		
 	#clear current item
@@ -39,12 +39,8 @@ class backend:
 		self.total = numpy.add(self.total, self.calc())
 		return self.total
 		
-	def calc(self, item=None):
-		result = []
-		if item is not None:
-			result = copy.deepcopy(item)
-		else:
-			result = copy.deepcopy(self.item)
+	def calc(self):
+		result = copy.deepcopy(self.item)
 			
 		for matlist in result:
 			for i in range(6,0,-1):

@@ -77,6 +77,16 @@ class GUI:
 			for x in i:
 				self.textfeld.insert(END, x)
 				self.textfeld.insert(END, "\t")
+				
+	def printTotal(self):
+		self.textfeld.delete(1.0, END)
+		item = self.backend.total
+		for x in tiers:
+			self.textfeld.insert(END, x + "\t")
+		for i in item:
+			for x in i:
+				self.textfeld.insert(END, x)
+				self.textfeld.insert(END, "\t")
 			
 	#full-clear
 	def clear(self):
