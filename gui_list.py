@@ -65,15 +65,9 @@ class GUI:
 		
 	def resolve(self):
 		self.textfeld.delete(1.0, END)
-		needed = []
-		needed.append(tiers)
-		needed.append(self.backend.calc(self.backend.wood))
-		needed.append(self.backend.calc(self.backend.brick))
-		needed.append(self.backend.calc(self.backend.leather))
-		needed.append(self.backend.calc(self.backend.metal))
-		needed.append(self.backend.calc(self.backend.cloth))
-		
-		for i in needed:
+		item = self.backend.calcItem()
+		item.insert(0, tiers)
+		for i in item:
 			for x in i:
 				self.textfeld.insert(END, x)
 				self.textfeld.insert(END, "\t")

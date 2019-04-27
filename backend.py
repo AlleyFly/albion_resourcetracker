@@ -67,6 +67,12 @@ class backend:
 		
 		return result
 		
+	def calcAll(self):
+		
+		for item in items:
+			for matlist in item:
+				pass
+		
 	def chwood(self, tier, dekr):
 		if(dekr):
 			self.wood[tier] -= 1
