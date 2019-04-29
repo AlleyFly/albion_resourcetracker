@@ -11,14 +11,14 @@ mats = {
 }
 
 multable = {
-			2: 1,
-			3: 2,
-			4: 2,
-			5: 3,
-			6: 4,
-			7: 5,
-			8: 5
-		}
+	2: 1,
+	3: 2,
+	4: 2,
+	5: 3,
+	6: 4,
+	7: 5,
+	8: 5
+}
 
 class backend:
 
@@ -28,34 +28,34 @@ class backend:
 		emptyMat = [0,0,0,0,0,0,0]
 		self.item = [emptyMat[:] for i in mats]
 		self.total = copy.deepcopy(self.item)
-		
-		
+
+
 	#clear current item
 	def clearItem(self):
 		emptyMat = [0,0,0,0,0,0,0]
 		self.item = [emptyMat[:] for i in mats]
-	
+
 	def addItem(self):
 		self.total = numpy.add(self.total, self.calc())
 		return self.total
-		
+
 	def calc(self):
 		result = copy.deepcopy(self.item)
-			
+
 		for matlist in result:
 			for i in range(6,0,-1):
 				matlist[i-1] += matlist[i]
 			for i in range(7):
 				matlist[i] = matlist[i]*multable[i+2]
-		
+
 		return result
-		
-		
+
+
 	def addmat(self, tier, mat, btnref):
 		self.item[mat][tier] += 1
 		btnref["text"] = self.item[mat][tier]
-	
-	
+
+
 	def submat(self, tier, mat, btnref):
 		self.item[mat][tier] -= 1
 		btnref["text"] = self.item[mat][tier]
