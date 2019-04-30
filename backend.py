@@ -1,6 +1,7 @@
 
 import numpy
 import copy
+import tradeup
 
 mats = {
 	0: "wood",
@@ -47,9 +48,14 @@ class backend:
 				matlist[i-1] += matlist[i]
 			for i in range(7):
 				matlist[i] = matlist[i]*multable[i+2]
-
+		self.total = result
 		return result
 
+	def remaining(self):
+		result = []
+		for matlist in self.item:
+			result.append(tradeup.remainingGather(matlist))
+		self.total = result
 
 	def addmat(self, tier, mat, btnref):
 		self.item[mat][tier] += 1

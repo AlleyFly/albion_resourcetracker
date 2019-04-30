@@ -23,8 +23,8 @@ class GUI:
 		self.intab.grid(row=0, column=0, sticky=NW)
 		
 		#Frame für control buttons
-		self.cbtns = Frame(self.intab)
-		self.cbtns.grid(row=6, column=0, columnspan=8, sticky=NSEW)
+		self.cbtns = Frame(root)
+		self.cbtns.grid(row=1, column=0, sticky=NW)
 		
 		#TextBox zur Ausgabe
 		self.textfeld = Text(root, height = 12, width = 52, spacing2 = 10)
@@ -45,6 +45,10 @@ class GUI:
 		#clear
 		clear = Button(self.cbtns, text="Full Clear", command=self.clear)
 		clear.pack()
+		
+		#remaining button
+		remain = Button(self.cbtns, text="remain", command=self.remaining)
+		remain.pack()
 		
 		
 		#buttonTable labels
@@ -99,6 +103,10 @@ class GUI:
 		self.backend.clearItem()
 		self.btnrenew()
 		
+	def remaining(self):
+		self.backend.remaining()
+		self.printTotal()
+
 	def addItem(self):
 		self.resolve()
 		self.backend.clearItem()
