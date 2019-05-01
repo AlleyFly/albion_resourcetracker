@@ -2,24 +2,7 @@
 import numpy
 import copy
 import tradeup
-
-mats = {
-	0: "wood",
-	1: "brick",
-	2: "leather",
-	3: "metal",
-	4: "cloth"
-}
-
-multable = {
-	2: 1,
-	3: 2,
-	4: 2,
-	5: 3,
-	6: 4,
-	7: 5,
-	8: 5
-}
+from data import *
 
 class backend:
 

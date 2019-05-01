@@ -1,15 +1,6 @@
 from tkinter import *
+from data import *
 
-
-mats = {
-	0: "wood",
-	1: "brick",
-	2: "leather",
-	3: "metal",
-	4: "cloth"
-}
-
-tiers = ["T2", "T3", "T4", "T5", "T6", "T7", "T8"]
 
 class GUI:
 
@@ -73,14 +64,9 @@ class GUI:
 	#/init
 		
 	def resolve(self):
-		self.textfeld.delete(1.0, END)
 		item = self.backend.addItem()
-		for x in tiers:
-			self.textfeld.insert(END, x + "\t")
-		for i in item:
-			for x in i:
-				self.textfeld.insert(END, x)
-				self.textfeld.insert(END, "\t")
+		self.printTotal()
+		
 				
 	def printTotal(self):
 		self.textfeld.delete(1.0, END)
@@ -91,6 +77,12 @@ class GUI:
 			for x in i:
 				self.textfeld.insert(END, x)
 				self.textfeld.insert(END, "\t")
+				
+	def printHuman(self):
+		self.textfeld.delete()
+		item = self.backend.total
+		
+		
 			
 	#full-clear
 	def clear(self):

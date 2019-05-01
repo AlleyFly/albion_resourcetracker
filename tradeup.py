@@ -3,24 +3,7 @@ import operator
 import math
 
 #kosten um resourcen aus niedrigerem tier herzustellen
-cost = {
-	3: 3,
-	4: 6,
-	5: 9,
-	6: 15,
-	7: 25,
-	8: 42
-}
 
-multable = {
-	2: 1,
-	3: 2,
-	4: 2,
-	5: 3,
-	6: 4,
-	7: 5,
-	8: 5
-}
 
 #berechnung der verbleibenden noetigen Materialien um alle maxtier-Mats zu verarbeiten
 def remainingGather(matlist):
@@ -32,8 +15,6 @@ def remainingGather(matlist):
 	for i in range(tmax, 8): #mit 0 auf richtige laenge padden
 		needed.append(0)
 
-	print(needed)
-	print(matlist)
 	#listen verechnen
 	result = map(operator.sub, needed, matlist)
 	return result
