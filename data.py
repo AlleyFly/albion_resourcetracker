@@ -31,6 +31,7 @@ cost = {
 	8: 42
 }
 
+"""
 #material names
 names =  {
 	wood: {
@@ -78,4 +79,4 @@ names =  {
 		7: "Sunflax",
 		8: "Ghost Hemp"
 	}
-}
+}"""

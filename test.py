@@ -1,10 +1,20 @@
 
-import tradeup
+import tkinter as tk
+import rbutton
 
-mtlist = [2,0,0,0,0,3,10]
+def call1():
+	print("1 called")
 
-result = tradeup.remainingGather(mtlist)
+def call2():
+	print("2 called")
 
+root = tk.Tk()
 
-print(result)
+rbuttons = {
+	"1": call1,
+	"2": call2
+}
 
+rbuttons = rbutton.rbutton(root, rbuttons)
+
+root.mainloop()
