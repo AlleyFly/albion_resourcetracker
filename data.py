@@ -31,10 +31,9 @@ cost = {
 	8: 42
 }
 
-"""
 #material names
 names =  {
-	wood: {
+	"wood": {
 		2: "Birch",
 		3: "Chestnut",
 		4: "Pine",
@@ -43,7 +42,7 @@ names =  {
 		7: "Ashenbark",
 		8: "Whitewood"
 	},
-	brick: {
+	"brick": {
 		2: "Limestone",
 		3: "Sandstone",
 		4: "Travertine",
@@ -52,7 +51,7 @@ names =  {
 		7: "Basalt",
 		8: "Marble"
 	},
-	leather: {
+	"leather": {
 		2: "Rugged",
 		3: "Thin",
 		4: "Medium",
@@ -61,7 +60,7 @@ names =  {
 		7: "Thick",
 		8: "Resilient"
 	},
-	metal: {
+	"metal": {
 		2: "Copper",
 		3: "Tin",
 		4: "Iron",
@@ -70,7 +69,7 @@ names =  {
 		7: "Meteorite",
 		8: "Adamantium"
 	},
-	cloth:
+	"cloth": {
 		2: "Cotton",
 		3: "Flax",
 		4: "Hemp",
@@ -79,4 +78,4 @@ names =  {
 		7: "Sunflax",
 		8: "Ghost Hemp"
 	}
-}"""
+}

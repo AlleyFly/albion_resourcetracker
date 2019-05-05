@@ -1,5 +1,6 @@
 from tkinter import *
 from data import *
+from rbutton import *
 
 
 class GUI:
@@ -40,6 +41,11 @@ class GUI:
 		#remaining button
 		remain = Button(self.cbtns, text="remain", command=self.remaining)
 		remain.pack()
+		
+		#raw/refined toggle
+		rawrefbase = Frame(self.intab)
+		rawrefbase.grid(row=0, column=0)
+		rawref = rbutton(rawrefbase, {"raw": self.switchRaw, "ref": self.switchRef})
 		
 		
 		#buttonTable labels
@@ -82,7 +88,11 @@ class GUI:
 		self.textfeld.delete()
 		item = self.backend.total
 		
+	def switchRaw(self):
+		print("switching to raw View")
 		
+	def switchRef(self):
+		print("switching to Refined View")
 			
 	#full-clear
 	def clear(self):
