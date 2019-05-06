@@ -48,3 +48,15 @@ class backend:
 	def submat(self, tier, mat, btnref):
 		self.item[mat][tier] -= 1
 		btnref["text"] = self.item[mat][tier]
+		
+	def getHumanString(self):
+		result = ""
+		
+		for i in range(5):
+			matstr = mats[i]
+			result = result + matstr+"\n"
+			for j in range(7):
+				if(self.total[i][j] != 0):
+					temp = "\t%dx %s %s\n" % (self.total[i][j], names[matstr][j+2], rawsuff[matstr])
+					result += temp		
+		return result

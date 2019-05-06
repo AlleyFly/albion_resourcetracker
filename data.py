@@ -31,6 +31,22 @@ cost = {
 	8: 42
 }
 
+rawsuff = {
+	"wood": "Logs",
+	"brick": "",
+	"leather": "Hide",
+	"metal": "Ore",
+	"cloth": ""
+}
+
+refsuff = {
+	"wood": "Planks",
+	"brick": "Block",
+	"leather": "Leather",
+	"metal": "Bars",
+	"cloth": "Cloth"
+}
+
 #material names
 names =  {
 	"wood": {

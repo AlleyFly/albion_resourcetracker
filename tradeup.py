@@ -1,6 +1,6 @@
 
-import operator
 import math
+from data import *
 
 #kosten um resourcen aus niedrigerem tier herzustellen
 
@@ -9,14 +9,14 @@ import math
 def remainingGather(matlist):
 	tmax = maxtier(matlist)
 	amount = matlist[tmax-2]/multable[tmax]
-	needed = [math.ceil(amount*multable[i+2]) for i in range(tmax-2)]
+	needed = [math.ceil(amount)*multable[i+2] for i in range(tmax-2)]
 	needed.append(matlist[tmax-2]) #-amount vermeiden
 	
 	for i in range(tmax, 8): #mit 0 auf richtige laenge padden
 		needed.append(0)
 
 	#listen verechnen
-	result = map(operator.sub, needed, matlist)
+	result = [needed[i]-matlist[i] for i in range(7)]
 	return result
 
 
@@ -27,7 +27,3 @@ def maxtier(matlist):
 			return counter
 		counter -= 1
 	return 2
-
-#berechnung ohne tradeup
-def calcMax(matlist):
-	pass

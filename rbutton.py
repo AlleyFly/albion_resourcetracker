@@ -1,4 +1,4 @@
-from tkinter import Button
+from tkinter import Button, LEFT
 
 class rbutton:
 
@@ -17,7 +17,7 @@ class rbutton:
 			button = Button(root, text=btnname)
 			self.buttons.append(button)
 			button.bind("<Button-1>", lambda event, f=btnfunc: self.sink_button(event,f))
-			button.pack()
+			button.pack(side=LEFT)
 			
 	
 		

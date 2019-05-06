@@ -85,15 +85,21 @@ class GUI:
 				self.textfeld.insert(END, "\t")
 				
 	def printHuman(self):
-		self.textfeld.delete()
-		item = self.backend.total
+		self.textfeld.delete(1.0, END)
+		outp = self.backend.getHumanString()
+		self.textfeld.insert(END, outp)
+		
 		
 	def switchRaw(self):
 		print("switching to raw View")
 		
+		self.btnrenew()
+		
 	def switchRef(self):
 		print("switching to Refined View")
-			
+		self.printHuman() #temporär zum testen
+		self.btnrenew()
+		
 	#full-clear
 	def clear(self):
 		self.textfeld.delete(1.0, END)
@@ -107,7 +113,8 @@ class GUI:
 		
 	def remaining(self):
 		self.backend.remaining()
-		self.printTotal()
+#		self.printTotal()
+		self.printHuman()
 
 	def addItem(self):
 		self.resolve()
